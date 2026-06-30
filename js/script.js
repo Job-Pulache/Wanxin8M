@@ -1,3 +1,4 @@
+/* ===================== PIXEL LOGO ON CANVAS ===================== */
 (function(){
   const cv = document.getElementById('pixelLogo');
   const ctx = cv.getContext('2d');
@@ -21,7 +22,7 @@
     setTimeout(draw, 250);
   } else { draw(); }
 })();
- 
+
 /* ===================== BOOT SEQUENCE ===================== */
 (function(){
   const fill = document.getElementById('bootFill');
@@ -36,7 +37,7 @@
     fill.style.width = p + '%';
     pct.textContent = Math.floor(p) + '%';
   }, 130);
- 
+
   function onLoaded(){
     pct.textContent = '100%';
     setTimeout(()=>{
@@ -55,7 +56,7 @@
     }, 300);
   }
 })();
- 
+
 /* ===================== HERO 3D CANVAS (wireframe grid + particles) ===================== */
 (function(){
   const canvas = document.getElementById('heroCanvas');
@@ -68,17 +69,17 @@
   window.addEventListener('resize', resize);
   // wait for layout
   requestAnimationFrame(()=>{ resize(); });
- 
+
   const horizon = ()=> h*0.55;
   let t = 0;
   const stars = Array.from({length:90}, ()=>({
     x: Math.random()*1, y: Math.random()*0.55, s: Math.random()*1.6+0.4, tw: Math.random()*Math.PI*2
   }));
- 
+
   function draw(){
     t += 0.6;
     ctx.clearRect(0,0,w,h);
- 
+
     // stars / particles
     ctx.fillStyle = 'rgba(233,235,228,0.5)';
     stars.forEach(s=>{
@@ -87,7 +88,7 @@
       ctx.fillRect(s.x*w, s.y*h, s.s*devicePixelRatio, s.s*devicePixelRatio);
     });
     ctx.globalAlpha = 1;
- 
+
     // perspective grid floor
     const hy = horizon();
     ctx.strokeStyle = 'rgba(255,176,0,0.35)';
@@ -114,12 +115,12 @@
       ctx.lineTo(w,y);
       ctx.stroke();
     }
- 
+
     requestAnimationFrame(draw);
   }
   draw();
 })();
- 
+
 /* ===================== TILT CARD 3D (mouse) ===================== */
 (function(){
   const card = document.getElementById('tiltCard');
@@ -132,7 +133,7 @@
   });
   stage.addEventListener('mouseleave', ()=>{ card.style.transform = 'rotateY(0) rotateX(0)'; });
 })();
- 
+
 /* ===================== REVEAL ON SCROLL ===================== */
 (function(){
   const els = document.querySelectorAll('.reveal');
@@ -147,7 +148,7 @@
   }, {threshold:.2});
   els.forEach(el=>io.observe(el));
 })();
- 
+
 /* ===================== COLOR SELECT ===================== */
 (function(){
   const items = document.querySelectorAll('.select-item');
