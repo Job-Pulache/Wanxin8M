@@ -10,216 +10,148 @@
 <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
-
-<div class="grain"></div>
-<div class="scan"></div>
-<div class="vignette"></div>
-
-<!-- HUD BAR -->
-<div class="hudbar">
-  <div class="logo"><span class="dot"></span>WANXIN&nbsp;200·8M</div>
-  <div class="hud-readout">
-    <div class="hud-chip"><small>POTENCIA</small><span>18.5HP</span></div>
-    <div class="hud-chip"><small>0-60</small><span>4.1S</span></div>
-    <div class="hud-chip"><small>TOP SPEED</small><span>120KPH</span></div>
+ 
+<!-- ============ BOOT SCREEN ============ -->
+<div id="boot">
+  <div class="boot-scan"></div>
+  <div class="boot-flicker" style="display:flex;flex-direction:column;align-items:center;">
+    <canvas id="pixelLogo" width="320" height="80" style="image-rendering:pixelated; width:min(560px,86vw); height:auto;"></canvas>
+    <div class="boot-sub pixel">CARGANDO MUNDO...</div>
+    <div class="boot-bar-wrap"><div class="boot-bar-fill" id="bootFill"></div></div>
+    <div class="boot-pct pixel" id="bootPct">0%</div>
+    <div class="boot-press pixel" id="bootPress">PRESIONA PARA CONTINUAR</div>
   </div>
 </div>
-
-<!-- HERO -->
-<section class="hero" style="padding-left:0;padding-right:0;">
-  <div class="asphalt-tex"></div>
-  <div class="roadline"></div>
-  <div class="corner-frame cf-tl"></div>
-  <div class="corner-frame cf-tr"></div>
-  <div class="corner-frame cf-bl"></div>
-  <div class="corner-frame cf-br"></div>
-
-  <div class="hero-grid">
-    <div>
-      <div class="hero-tag">▸ NIVEL DESBLOQUEADO · EDICIÓN 8M</div>
-      <h1 class="hero-title">
-        <span class="accent">DOMINA</span>
-        <span class="fill">EL ASFALTO</span>
-      </h1>
-      <p class="hero-sub">La WANXIN 200 8M no es solo una moto: es tu próxima partida. Motor de 200cc, suspensión de competición y una actitud que rompe el modo fácil.</p>
-      <div class="hero-cta">
-        <button class="btn btn-primary">▶ INICIAR TEST RIDE</button>
-        <button class="btn btn-ghost">VER FICHA TÉCNICA</button>
+ 
+<div class="grain"></div>
+<div class="vignette"></div>
+ 
+<!-- ============ SITE ============ -->
+<div id="site">
+ 
+  <div class="hudbar">
+    <div class="logo"><span class="sq"></span>WANXIN 200·8M</div>
+    <div class="hud-readout">
+      <div class="hud-chip"><small>POTENCIA</small><span>18.5 HP</span></div>
+      <div class="hud-chip"><small>0–60</small><span>4.1 S</span></div>
+      <div class="hud-chip"><small>TOP SPEED</small><span>120 KPH</span></div>
+    </div>
+  </div>
+ 
+  <section class="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-fade"></div>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">▸ EDICIÓN 8M — NUEVA GENERACIÓN</div>
+        <h1 class="hero-title">
+          <span class="out">CONTROL</span>
+          <span class="fill">TOTAL</span>
+        </h1>
+        <p class="hero-sub">La WANXIN 200 8M combina motor de 200cc, electrónica de precisión y un chasis pensado para quien exige más de cada kilómetro.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary">▶ AGENDAR TEST RIDE</button>
+          <button class="btn btn-ghost">VER FICHA TÉCNICA</button>
+        </div>
+      </div>
+ 
+      <div class="tilt-stage">
+        <div class="tilt-card" id="tiltCard">
+          <div class="tilt-head">▸ TELEMETRÍA EN VIVO</div>
+          <div class="tilt-row"><span>MOTOR</span><span>200cc 4T</span></div>
+          <div class="tilt-row"><span>TORQUE</span><span>16.8 N·m</span></div>
+          <div class="tilt-row"><span>FRENOS</span><span>Disco doble ABS</span></div>
+          <div class="tilt-row"><span>PESO</span><span>138 kg</span></div>
+          <div class="tilt-row"><span>TANQUE</span><span>13.5 L</span></div>
+        </div>
       </div>
     </div>
-
-    <div class="speedo-wrap">
-      <div class="speedo">
-        <svg viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="92" fill="none" stroke="#1d211c" stroke-width="10"/>
-          <circle id="speedRing" cx="100" cy="100" r="92" fill="none" stroke="url(#grad)" stroke-width="10"
-                  stroke-linecap="round" stroke-dasharray="578" stroke-dashoffset="578"
-                  transform="rotate(-90 100 100)"/>
-          <defs>
-            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#d9410b"/>
-              <stop offset="100%" stop-color="#ffc200"/>
-            </linearGradient>
-          </defs>
-          <g stroke="#3a3f37" stroke-width="2">
-            <line x1="100" y1="14" x2="100" y2="26"/>
-            <line x1="170" y1="40" x2="160" y2="48"/>
-            <line x1="186" y1="100" x2="174" y2="100"/>
-            <line x1="170" y1="160" x2="160" y2="152"/>
-            <line x1="30" y1="40" x2="40" y2="48"/>
-            <line x1="14" y1="100" x2="26" y2="100"/>
-            <line x1="30" y1="160" x2="40" y2="152"/>
+    <div class="scroll-hint"><div class="bar"></div>SCROLL</div>
+  </section>
+ 
+  <section class="stats">
+    <div class="section-head reveal">
+      <div><div class="section-tag">▸ 01 / RENDIMIENTO</div><h2 class="section-title">DATOS DE PISTA</h2></div>
+      <div class="index-num">01</div>
+    </div>
+    <div class="stats-grid">
+      <div class="reveal">
+        <div class="stat-bar-row"><div class="stat-bar-head"><span>POTENCIA</span><span>92</span></div><div class="stat-track"><div class="stat-fill" data-w="92%"></div></div></div>
+        <div class="stat-bar-row"><div class="stat-bar-head"><span>ACELERACIÓN</span><span>88</span></div><div class="stat-track"><div class="stat-fill" data-w="88%"></div></div></div>
+        <div class="stat-bar-row"><div class="stat-bar-head"><span>MANEJO</span><span>95</span></div><div class="stat-track"><div class="stat-fill" data-w="95%"></div></div></div>
+        <div class="stat-bar-row"><div class="stat-bar-head"><span>FRENADA</span><span>85</span></div><div class="stat-track"><div class="stat-fill" data-w="85%"></div></div></div>
+      </div>
+      <div class="specs-side reveal">
+        <div class="spec-line"><span>MOTOR</span><span>200cc / 4T</span></div>
+        <div class="spec-line"><span>POTENCIA MÁX.</span><span>18.5 HP</span></div>
+        <div class="spec-line"><span>VEL. MÁXIMA</span><span>120 km/h</span></div>
+        <div class="spec-line"><span>TRANSMISIÓN</span><span>5 velocidades</span></div>
+        <div class="spec-line"><span>SUSPENSIÓN</span><span>Invertida / Mono</span></div>
+        <div class="spec-line"><span>PESO</span><span>138 kg</span></div>
+      </div>
+    </div>
+  </section>
+ 
+  <section style="padding-bottom:0;">
+    <div class="section-head reveal">
+      <div><div class="section-tag">▸ 02 / EQUIPAMIENTO</div><h2 class="section-title">SISTEMAS A BORDO</h2></div>
+      <div class="index-num">02</div>
+    </div>
+  </section>
+  <div class="arena-grid">
+    <div class="arena-card reveal"><div class="ic">⚡</div><h3>ARRANQUE DIGITAL</h3><p>Tablero TFT a color con modos de manejo seleccionables y encendido sin llave.</p></div>
+    <div class="arena-card reveal"><div class="ic">◐</div><h3>NEUMÁTICOS RACE</h3><p>Compuesto de alto agarre para curvas agresivas y frenadas precisas.</p></div>
+    <div class="arena-card reveal"><div class="ic">▦</div><h3>CHASIS REFORZADO</h3><p>Estructura tubular de acero de alta resistencia, lista para todo terreno.</p></div>
+    <div class="arena-card reveal"><div class="ic">⛨</div><h3>ABS DOBLE CANAL</h3><p>Sistema antibloqueo que mantiene el control en cualquier escenario.</p></div>
+    <div class="arena-card reveal"><div class="ic">◇</div><h3>LED FULL TIME</h3><p>Iluminación LED en faro, direccionales y stop con firma propia.</p></div>
+    <div class="arena-card reveal"><div class="ic">▣</div><h3>APP COMPANION</h3><p>Telemetría de viaje, ubicación y alertas de mantenimiento en tiempo real.</p></div>
+  </div>
+ 
+  <section>
+    <div class="section-head reveal">
+      <div><div class="section-tag">▸ 03 / PERSONALIZACIÓN</div><h2 class="section-title">ELIGE TU COLOR</h2></div>
+      <div class="index-num">03</div>
+    </div>
+    <div class="select-wrap">
+      <div class="moto-display reveal">
+        <svg id="bikeSvg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#e9ebe4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+            <circle cx="130" cy="220" r="58"/>
+            <circle cx="460" cy="220" r="58"/>
+            <circle cx="130" cy="220" r="14"/>
+            <circle cx="460" cy="220" r="14"/>
+            <path id="bikeFill" d="M130 220 L260 150 L300 150 L340 90 L420 90 L460 220 M260 150 L300 220 M210 110 L300 110 L320 150" stroke="#ffb000"/>
+            <path d="M180 160 Q150 110 210 110"/>
+            <rect x="330" y="80" width="50" height="18" rx="3"/>
           </g>
         </svg>
-        <div class="speedo-center">
-          <div class="num" id="speedNum">0</div>
-          <div class="lbl">KM/H</div>
-        </div>
+      </div>
+      <div>
+        <div class="select-item active reveal" data-color="#ffb000"><span class="si-num">01</span><span class="si-name">Ember Amber</span><span class="color-dot active" style="background:#ffb000"></span></div>
+        <div class="select-item reveal" data-color="#e9ebe4"><span class="si-num">02</span><span class="si-name">Stealth White</span><span class="color-dot" style="background:#e9ebe4"></span></div>
+        <div class="select-item reveal" data-color="#5cff9d"><span class="si-num">03</span><span class="si-name">Circuit Green</span><span class="color-dot" style="background:#5cff9d"></span></div>
+        <div class="select-item reveal" data-color="#3a3d40"><span class="si-num">04</span><span class="si-name">Shadow Grey</span><span class="color-dot" style="background:#3a3d40"></span></div>
       </div>
     </div>
-  </div>
-
-  <div class="scroll-hint"><div class="bar"></div>SCROLL</div>
-</section>
-
-<!-- STATS SECTION -->
-<section class="stats">
-  <div class="section-head reveal">
-    <div>
-      <div class="section-tag">▸ STAGE 01</div>
-      <h2 class="section-title">STATS DE <em>COMBATE</em></h2>
-    </div>
-    <div class="index-num">01</div>
-  </div>
-
-  <div class="stats-grid">
+  </section>
+ 
+  <section class="final">
     <div class="reveal">
-      <div class="stat-bar-row">
-        <div class="stat-bar-head"><b>POTENCIA</b><span class="val">92/100</span></div>
-        <div class="stat-track"><div class="stat-fill" data-w="92%"></div></div>
-      </div>
-      <div class="stat-bar-row">
-        <div class="stat-bar-head"><b>ACELERACIÓN</b><span class="val">88/100</span></div>
-        <div class="stat-track"><div class="stat-fill" data-w="88%"></div></div>
-      </div>
-      <div class="stat-bar-row">
-        <div class="stat-bar-head"><b>MANEJO</b><span class="val">95/100</span></div>
-        <div class="stat-track"><div class="stat-fill" data-w="95%"></div></div>
-      </div>
-      <div class="stat-bar-row">
-        <div class="stat-bar-head"><b>FRENADA</b><span class="val">85/100</span></div>
-        <div class="stat-track"><div class="stat-fill" data-w="85%"></div></div>
+      <div class="section-tag" style="display:flex;justify-content:center;">▸ ÚLTIMO NIVEL</div>
+      <h2>LISTO PARA<br><span>PRESIONAR START</span></h2>
+      <p>Financiamiento disponible y entrega en tu ciudad. Tu WANXIN 200 8M te espera en el grid de salida.</p>
+      <div class="price-tag"><span class="cur">S/</span><span class="amt">8,990</span><span class="per">/ desde</span></div>
+      <div class="hero-cta" style="justify-content:center;">
+        <button class="btn btn-primary">▶ RESERVAR AHORA</button>
+        <button class="btn btn-ghost">HABLAR CON UN ASESOR</button>
       </div>
     </div>
-
-    <div class="specs-side reveal">
-      <div class="spec-line"><span>MOTOR</span><span>200cc / 4T</span></div>
-      <div class="spec-line"><span>POTENCIA MÁX.</span><span>18.5 HP</span></div>
-      <div class="spec-line"><span>TORQUE</span><span>16.8 N·m</span></div>
-      <div class="spec-line"><span>VEL. MÁXIMA</span><span>120 km/h</span></div>
-      <div class="spec-line"><span>TRANSMISIÓN</span><span>5 velocidades</span></div>
-      <div class="spec-line"><span>SUSPENSIÓN</span><span>Invertida / Mono</span></div>
-      <div class="spec-line"><span>FRENOS</span><span>Disco doble ABS</span></div>
-      <div class="spec-line"><span>PESO</span><span>138 kg</span></div>
-      <div class="spec-line"><span>TANQUE</span><span>13.5 L</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ARENA / FEATURES -->
-<section>
-  <div class="section-head reveal">
-    <div>
-      <div class="section-tag">▸ STAGE 02</div>
-      <h2 class="section-title">POWER <em>UPS</em></h2>
-    </div>
-    <div class="index-num">02</div>
-  </div>
-</section>
-
-<div class="arena-grid">
-  <div class="arena-card reveal"><span class="tag">NEW</span><span class="ic">⚡</span><h3>ARRANQUE DIGITAL</h3><p>Encendido sin llave con tablero TFT full color y modos de manejo seleccionables.</p></div>
-  <div class="arena-card reveal"><span class="ic">🛞</span><h3>NEUMÁTICOS RACE</h3><p>Compuesto de alto agarre diseñado para curvas agresivas y frenadas de último segundo.</p></div>
-  <div class="arena-card reveal"><span class="ic">🔧</span><h3>CHASIS REFORZADO</h3><p>Estructura tubular de acero de alta resistencia, optimizada para saltos y terreno mixto.</p></div>
-  <div class="arena-card reveal"><span class="ic">🛡️</span><h3>ABS DE COMBATE</h3><p>Sistema antibloqueo de doble canal que te mantiene en control en cualquier escenario.</p></div>
-  <div class="arena-card reveal"><span class="ic">🔋</span><h3>LED FULL TIME</h3><p>Iluminación LED en todo el cuerpo: faro, direccionales y stop con firma lumínica propia.</p></div>
-  <div class="arena-card reveal"><span class="ic">📡</span><h3>CONECTIVIDAD</h3><p>App companion con telemetría de viaje, ubicación y alertas de mantenimiento en vivo.</p></div>
+  </section>
+ 
+  <footer>
+    <div class="f-logo">WANXIN · 200·8M</div>
+    <div>© 2026 WANXIN MOTORS</div>
+    <div>PIURA · PERÚ</div>
+  </footer>
 </div>
-
-<!-- COLOR SELECT -->
-<section>
-  <div class="section-head reveal">
-    <div>
-      <div class="section-tag">▸ STAGE 03</div>
-      <h2 class="section-title">ELIGE TU <em>SKIN</em></h2>
-    </div>
-    <div class="index-num">03</div>
-  </div>
-
-  <div class="select-wrap">
-    <div class="moto-display reveal">
-      <div class="corner-frame cf-tl"></div>
-      <div class="corner-frame cf-br"></div>
-      <svg id="bikeSvg" class="silhouette" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="#ffc200" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="130" cy="220" r="58"/>
-          <circle cx="460" cy="220" r="58"/>
-          <circle cx="130" cy="220" r="14"/>
-          <circle cx="460" cy="220" r="14"/>
-          <path id="bikeFill" d="M130 220 L260 150 L300 150 L340 90 L420 90 L460 220 M260 150 L300 220 M210 110 L300 110 L320 150" stroke="#ff5e1a"/>
-          <path d="M180 160 Q150 110 210 110" />
-          <rect x="330" y="80" width="50" height="18" rx="3"/>
-        </g>
-      </svg>
-    </div>
-
-    <div>
-      <div class="select-list reveal">
-        <div class="select-item active" data-color="#ff5e1a">
-          <span class="si-num">01</span><span class="si-name">Inferno Orange</span><div class="si-bar"></div>
-          <span class="color-dot active" style="background:#ff5e1a"></span>
-        </div>
-        <div class="select-item" data-color="#ffc200">
-          <span class="si-num">02</span><span class="si-name">Volt Yellow</span><div class="si-bar"></div>
-          <span class="color-dot" style="background:#ffc200"></span>
-        </div>
-        <div class="select-item" data-color="#1c6dff">
-          <span class="si-num">03</span><span class="si-name">Cobalt Blue</span><div class="si-bar"></div>
-          <span class="color-dot" style="background:#1c6dff"></span>
-        </div>
-        <div class="select-item" data-color="#eef0e6">
-          <span class="si-num">04</span><span class="si-name">Stealth White</span><div class="si-bar"></div>
-          <span class="color-dot" style="background:#eef0e6"></span>
-        </div>
-        <div class="select-item" data-color="#ff3b3b">
-          <span class="si-num">05</span><span class="si-name">Crimson Rush</span><div class="si-bar"></div>
-          <span class="color-dot" style="background:#ff3b3b"></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final">
-  <div class="reveal">
-    <div class="section-tag" style="justify-content:center;display:flex;">▸ ÚLTIMO NIVEL</div>
-    <h2>ES HORA DE<br><span>PRESIONAR START</span></h2>
-    <p>Financiamiento disponible, garantía extendida y entrega en tu ciudad. Tu nueva WANXIN 200 8M te está esperando en el grid de salida.</p>
-    <div class="price-tag"><span class="cur">S/</span><span class="amt">8,990</span><span class="per">/ desde</span></div>
-    <div class="hero-cta" style="justify-content:center;">
-      <button class="btn btn-primary">▶ RESERVAR AHORA</button>
-      <button class="btn btn-ghost">HABLAR CON UN ASESOR</button>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="f-logo">WANXIN · 200·8M</div>
-  <div>© 2026 WANXIN MOTORS — TODOS LOS DERECHOS RESERVADOS</div>
-  <div>PIURA · PERÚ</div>
-</footer>
-
-<script src="js/script.js"></script>
-</body>
 </html>
